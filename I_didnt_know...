@@ -1,3 +1,47 @@
-1.
+##### 1. conda와 pip
+
+
 Conda 환경에서 pip를 통해 설치하면 아나콘다의 Lib/site-packages에 설치된다. 가상환경 내부가 아니라.
-conda 를 통해 설치해야 가상환경에 설치된다
+conda 를 통해 설치해야 가상환경에 설치된다. - 잘 모르겠다
+가상환경이 activate 된 상태에서는 pip를 통해 설치해도 가상환경 안에만 생긴다.
+Hmm...  하지만 가끔 꼬이는거같다..?
+
+---------------------------------------------------------------------------------------
+#####2. Jupyter Notebook과 커널
+
+
+Jupyter 는 "base 환경에다만" 설치해주도록 하자.
+
+생성한 가상환경마다 
+
+$pip install ipykernel
+을 설치해주고, 가상환경 내부에서 
+
+$ python -m ipykernel install --user --name 가상환경_이름 --display-name 커널에_표시될_이름
+을 실행시켜주면 base jupyter 환경에서 가상환경으로 접속할 수 있다.
+
+커널 목록 보는법
+
+$ jupyter kernelspec list
+
+커널 삭제하는법
+
+$jupyter kernelspec uninstall {kernelname}
+
+---------------------------------------------------------------------------------------
+##### 3.맥북에서 파이토치 gpu 쓰는법
+
+
+conda 이용 pytorch 최신 버전 설치 -> 파이토치 1.13부터는 그냥 지원한다고 한다! 유후!
+$conda install pytorch torchvision torchaudio -c pytorch
+ 
+or pip 이용 설치
+$pip install torch torchvision torchaudio
+
+파이썬 코드 내부에
+device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+
+기존의 cuda기반 gpu : device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+---------------------------------------------------------------------------------------
+
