@@ -20,6 +20,10 @@ $pip install ipykernel
 $ python -m ipykernel install --user --name 가상환경_이름 --display-name 커널에_표시될_이름
 을 실행시켜주면 base jupyter 환경에서 가상환경으로 접속할 수 있다.
 
+한번에 입력하기 코드
+pip install ipykernel;python -m ipykernel install --user --name 가상환경_이름 --display-name 커널에_표시될_이름
+
+
 커널 목록 보는법
 
 $ jupyter kernelspec list
