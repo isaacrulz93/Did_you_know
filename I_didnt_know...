@@ -62,3 +62,32 @@ $python -m tensorboard.main --logdir=logdir
 를 해주면 해결할 수 있다!
 
 echo "alias tensorboard='python3 -m tensorboard.main'" >> ~/.bash_profile 를 하면 앞으로도 사용할 수 있다고 한다!   ---> 난 fish를 쓰는데 상관이 없나...?
+
+---------------------------------------------------------------------------------------
+
+#### 5.tmux를 사용해보자.
+tmux는 서버에서 계속 돌아가게 하는 환경으로, 내 컴퓨터를 꺼도 서버에서 계속 돌아가게 한다!
+
+
+생성된 세션 리스트 보기
+$tmux ls 
+
+생성된 세션 죽이기
+$tmux kill-session -t session_num
+
+지금 tmux에서 탈출하기 
+ctrl + b 를 누른 후 d
+
+세션 이름을 설정하고 새로운 세션 만들기
+$tmux new -s NAME
+
+가장 최근 세션으로 들어가기
+$tmux a
+
+특정 세션으로 들어가기
+$tmux a -t 세션 이름
+
+
+
+bonus : tmux에선 matplotlib을 plot 할 수 없다.
+그럴땐 마지막에 plt.savefig('이미지 파일명') 를 추가해서 저장을 해서 나중에 보도록 하자
